@@ -12,7 +12,14 @@ class Movie extends Model
      */
     public static $formats = ['VHS', 'DVD', 'Streaming'];
 
-    protected $fillable = array('id', 'title', 'format','length','year', 'rating');
+    /**
+     * @var array Sortable fields
+     */
+    public static $sortable = ['title', 'format','length','year', 'rating'];
+
+    public static $defaultSort = 'id';
+
+    protected $fillable = ['id', 'title', 'format','length','year', 'rating'];
 
     /**
      * Returns the validation rules for this model

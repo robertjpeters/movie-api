@@ -15,9 +15,12 @@ class Movies extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Movie::orderBy('id', 'asc')->get();
+        return Movie::orderBy(
+            $request->get("sort") && in_array($request->get("sort"), Movie::$sortable)
+                ? $request->get("sort") : Movie::$defaultSort,
+                'asc')->get();
     }
 
     /**

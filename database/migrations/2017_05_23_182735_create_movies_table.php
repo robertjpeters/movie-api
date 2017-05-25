@@ -16,7 +16,7 @@ class CreateMoviesTable extends Migration
         Schema::create('movies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 50);
-            $table->enum('format', ['VHS', 'DVD', 'Streaming']);
+            $table->enum('format', ['DVD', 'Streaming', 'VHS']);
             $table->integer('length');
             $table->integer('year');
             $table->integer('rating')->nullable();
